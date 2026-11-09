@@ -1,20 +1,20 @@
 /* 비교용 밝은 버전: ?theme=light 일 때만 적용 */
 :root {
-  --bg: #f2f1ee;
-  --surface: #e6e4df;
+  --bg: #ffffff;
+  --surface: #f2f3f5;
   --ink: #18191b;
   --muted: #5f6165;
   --accent: #002FA7;
   --accent-ink: #ffffff;
   --field-1: #18191b;
-  --field-1-ink: #f2f1ee;
+  --field-1-ink: #ffffff;
   --field-1-muted: #b5b7bb;
 }
-.lens button:hover { background: #d9d6d0; }
-.tag { background: #d9d6d0; }
-.dot { background: #c9c6c0; }
+.lens button:hover { background: #e6e7ea; }
+.tag { background: #e6e7ea; }
+.dot { background: #cfd1d5; }
 .project dt { color: #002FA7; }
-body[data-lens] .shelf li .tag { background: #d9d6d0; color: var(--ink); }
-.cell { background: #d9d6d0; color: var(--ink); }
-.cell:hover, .cell:focus-visible { background: #cbc8c2; }
+body[data-lens] .shelf li .tag { background: #e6e7ea; color: var(--ink); }
+.cell { background: #e6e7ea; color: var(--ink); }
+.cell:hover, .cell:focus-visible { background: #dcdee2; }
 .cell.send { background: var(--accent); color: var(--accent-ink); }

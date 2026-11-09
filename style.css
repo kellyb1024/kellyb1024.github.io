@@ -255,7 +255,8 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 }
 @media (prefers-reduced-motion: reduce) { .strip-track { animation: none; } html { scroll-behavior: auto; } }
 .core-now .frame-label { display: block; color: var(--ink); }
-.js body .core-now.naming [data-lens-only] { display: none; }
+.core-now.naming [data-lens-only] { display: none !important; }
+.core-now .frame-label[hidden] { display: none !important; }
 .phone.bare { background: transparent; padding: 0; border-radius: 0; aspect-ratio: 1002 / 2074; }
 .phone.bare > img { border-radius: 0; background: transparent; object-fit: contain; }
 .phone.bare.live { background: #050506; padding: 12px; border-radius: 46px; aspect-ratio: 375 / 780; }
