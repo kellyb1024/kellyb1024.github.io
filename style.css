@@ -480,3 +480,9 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
   .swipe-bar[hidden] { display: none; }
   .swipe-bar span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); border-radius: 2px; transition: transform 60ms linear; }
 }
+/* 11/10: 히어로와 소개 사이 여백 줄임 */
+.intro { padding-top: clamp(3.5rem, 6vw, 6rem); }
+@media (max-width: 760px) {
+  .core-now { display: none; }
+  .intro { padding-top: 40px; }
+}
