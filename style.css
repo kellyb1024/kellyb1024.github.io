@@ -436,3 +436,15 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 body[data-lens] .exp-list li .dot { background: #c9ccd1 !important; }
 body[data-lens] .shelf li .spine-name { color: var(--ink) !important; }
 body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--ink) !important; }
+
+/* 11/10: 휘서 인터뷰를 두 칸 전체 폭으로 (좌우 여백 균형, 사진 크게) */
+.case-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 6vw; margin-top: 72px; align-items: start; }
+.case-wide .quote { margin: 0; }
+.case-wide .zine { grid-column: 1 / -1; max-width: none; margin: 40px 0 0; gap: 16px; }
+.case-wide .statement { grid-column: 1 / -1; margin-top: 24px; }
+@media (max-width: 760px) {
+  .case-wide { grid-template-columns: 1fr; margin-top: 48px; }
+  .case-wide .zine { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin-right: calc(-1 * var(--margin)); padding-right: var(--margin); flex-wrap: nowrap; scrollbar-width: none; }
+  .case-wide .zine a { flex: 0 0 82%; scroll-snap-align: start; }
+  .case-wide .zine figcaption { display: none; }
+}
