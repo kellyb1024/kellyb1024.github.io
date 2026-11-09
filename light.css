@@ -1,21 +1,23 @@
-/* 기본 테마: 밝은 미색 (11/10). ?theme=dark 일 때만 빠짐 */
+/* 기본 테마: 흰 바탕 + 명함 클랭 블루 (11/10). ?theme=dark 일 때만 빠짐 */
 :root {
-  --bg: #fafaf7;
-  --surface: #f0efeb;
+  --bg: #ffffff;
+  --surface: #f3f4f6;
   --ink: #18191b;
   --muted: #5f6165;
   --accent: #002FA7;
   --accent-ink: #ffffff;
-  --field-1: #f0efeb;
+  --field-1: #f3f4f6;
   --field-1-ink: #18191b;
   --field-1-muted: #5f6165;
 }
-.lens button:hover { background: #e5e4df; }
-.tag { background: #e5e4df; }
-.dot { background: #cfcdc7; }
+.lens button:hover { background: #e7e8eb; }
+.tag { background: #e7e8eb; }
+.dot { background: #c9ccd1; }
 .project dt { color: #002FA7; }
-body[data-lens] .shelf li .tag { background: #e5e4df; color: var(--ink); }
-.cell { background: #e5e4df; color: var(--ink); }
-.cell:hover, .cell:focus-visible { background: #dddcd6; }
+body[data-lens] .shelf li .tag { background: #e7e8eb; color: var(--ink); }
+.cell { background: #e7e8eb; color: var(--ink); }
+.cell:hover, .cell:focus-visible { background: #dcdee2; }
 .cell.send { background: var(--accent); color: var(--accent-ink); }
 .cell.send:hover { background: #00227a; }
+.brand-logos img { background: #fff; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.story-head .logo { background: #fff; outline: 1px solid #e7e8eb; outline-offset: -1px; }
