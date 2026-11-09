@@ -497,3 +497,7 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 .shelf .tag { padding: 3px 8px; font-size: 13px; }
 /* 11/10: 브랜드 로고 타일을 학력 옆이 아니라 브랜딩 목록 옆(아래쪽)에 */
 .experience > .brand-logos { align-self: end; }
+/* 11/10: 영문 라벨(Process)이 두 줄로 쪼개지지 않게 라벨 칸을 메인 섹션과 같은 폭으로 */
+.project dl { grid-template-columns: 96px 1fr; }
+.project dt { white-space: nowrap; }
+@media (max-width: 760px) { .project dl { grid-template-columns: 1fr; } }
