@@ -101,3 +101,8 @@
   .step > .shots.deck[style*="--n:3"] { display: flex !important; overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--margin)); padding-right: var(--margin); scrollbar-width: none; }
   .step > .shots.deck[style*="--n:3"] > img { flex: 0 0 82%; width: 82%; scroll-snap-align: start; }
 }
+/* 11/10: 모바일에서 BUROCK 웹사이트 폰 목업이 쪼그라들던 문제 */
+@media (max-width: 760px) {
+  .site-pair { grid-template-columns: 1fr; justify-items: center; }
+  .site-pair .phone { width: min(320px, 86vw) !important; }
+}
