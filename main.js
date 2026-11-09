@@ -36,11 +36,13 @@
   const show = (t) => { label.textContent = t; label.hidden = false; now.classList.add('naming'); };
   const hide = () => { label.hidden = true; now.classList.remove('naming'); };
   document.querySelectorAll('.frame').forEach((f) => {
-    f.addEventListener('mouseenter', () => show(f.dataset.label));
-    f.addEventListener('focus', () => show(f.dataset.label));
-    f.addEventListener('mouseleave', hide);
+    f.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') show(f.dataset.label); });
+    f.addEventListener('pointerleave', hide);
+    f.addEventListener('focus', () => { if (f.matches(':focus-visible')) show(f.dataset.label); });
     f.addEventListener('blur', hide);
   });
+  window.addEventListener('scroll', hide, { passive: true });
+  document.querySelectorAll('[data-set-lens]').forEach((b) => b.addEventListener('click', hide));
 })();
 
 // Live prototypes: the poster becomes the real app inside the phone on request.
