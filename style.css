@@ -495,3 +495,5 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 .shelf a:hover, .shelf a:focus-visible { transform: none; background: #e7e8eb; }
 .shelf .spine-name { font-size: 16px; }
 .shelf .tag { padding: 3px 8px; font-size: 13px; }
+/* 11/10: 브랜드 로고 타일을 학력 옆이 아니라 브랜딩 목록 옆(아래쪽)에 */
+.experience > .brand-logos { align-self: end; }
