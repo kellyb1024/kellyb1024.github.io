@@ -70,3 +70,7 @@
 .pins img { width: 100%; height: auto; background: transparent; }
 .pins figcaption { font-size: 14px; color: var(--muted); }
 @media (max-width: 760px) { .pins { grid-template-columns: repeat(2, 1fr); } }
+.goods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
+.goods img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #2b2b2b; }
+@media (max-width: 760px) { .goods { grid-template-columns: repeat(2, 1fr); } }
+.goods-full { margin-top: 0; }
