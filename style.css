@@ -3,8 +3,8 @@
   --surface: #222427;
   --ink: #eff0f1;
   --muted: #9c9ea3;
-  --accent: #ff4a1f;
-  --accent-ink: #18191b;
+  --accent: #002FA7;
+  --accent-ink: #ffffff;
   --field-1: #eff0f1;
   --field-1-ink: #18191b;
   --field-1-muted: #55585d;
@@ -145,7 +145,7 @@ body[data-lens="brand"] .shelf li[data-lens~="brand"] .tag { background: var(--a
 .project-text h3 { font-size: clamp(2rem, 1.2rem + 2.4vw, 3.2rem); }
 .project .meta { color: var(--field-1-muted); }
 .project dl { display: grid; grid-template-columns: 72px 1fr; gap: 14px 20px; margin: 10px 0 0; }
-.project dt { font-weight: 600; color: #c2300d; }
+.project dt { font-weight: 600; color: #002FA7; }
 .project dd { margin: 0; }
 .lens-line { font-weight: 600; }
 .others .device-link { color: var(--field-1-muted); }
@@ -177,9 +177,9 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 .strip-track img { height: 150px; width: auto; object-fit: cover; }
 .contact h2 { margin: 72px var(--margin) 40px; font-size: clamp(2.25rem, 4vw, 3.75rem); }
 .cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 var(--margin); }
-.cell { display: grid; place-items: center; height: 96px; background: #ff6a45; color: var(--accent-ink); font-size: 18px; font-weight: 600; text-decoration: none; text-align: center; padding: 0 12px;
+.cell { display: grid; place-items: center; height: 96px; background: #1f4bc0; color: var(--accent-ink); font-size: 18px; font-weight: 600; text-decoration: none; text-align: center; padding: 0 12px;
   transition: background var(--t-hover) var(--ease-out), transform var(--t-press) var(--ease-out); }
-.cell:hover, .cell:focus-visible { background: #ffd2c4; }
+.cell:hover, .cell:focus-visible { background: #c9d4f2; }
 .cell:active { transform: scale(0.98); }
 .cell.send { background: var(--accent-ink); color: var(--ink); }
 .cell.send:hover { background: #000; }
