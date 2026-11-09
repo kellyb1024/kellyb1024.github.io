@@ -427,3 +427,7 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 .contact h2#contact-title { text-align: right; margin-top: calc(-1 * min(150px, 11vw)); }
 @media (max-width: 700px) { .sig-fly { width: 100vw; margin-top: 40px; } .contact h2#contact-title { margin-top: 8px; } }
 .contact .strip { margin-top: 96px; }
+/* 11/10: 렌즈 강조 제거 (목록 점, 작업 선반 색이 렌즈에 따라 바뀌지 않음) */
+body[data-lens] .exp-list li .dot { background: #c9ccd1 !important; }
+body[data-lens] .shelf li .spine-name { color: var(--ink) !important; }
+body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--ink) !important; }
