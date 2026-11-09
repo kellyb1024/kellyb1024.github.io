@@ -74,3 +74,30 @@
 .goods img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #2b2b2b; }
 @media (max-width: 760px) { .goods { grid-template-columns: repeat(2, 1fr); } }
 .goods-full { margin-top: 0; }
+/* BUROCK 케이스 요약 (11/10) */
+.facts { display: grid; grid-template-columns: 2fr 1fr 1.4fr 2fr; gap: 0 24px; margin: 56px 0 0; padding: 20px 0; border-top: 1px solid var(--surface); border-bottom: 1px solid var(--surface); }
+.facts dt { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.facts dd { margin: 0; font-size: 15px; line-height: 1.5; }
+.hero-pair { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 56px; }
+.hero-band .band { padding: 0; }
+.hero-phone img { width: 260px; height: auto; display: block; border-radius: 28px; border: 8px solid #111; background: #fff; }
+.goods-full { margin: 0 0 0; }
+@media (max-width: 760px) {
+  .facts { grid-template-columns: 1fr 1fr; gap: 16px 16px; }
+  .hero-pair { grid-template-columns: 1fr; justify-items: center; gap: 28px; }
+  .hero-phone img { width: 200px; }
+  .step { margin-bottom: 64px; }
+  .block { margin-top: 72px; }
+}
+/* 모바일: 시트와 슬로건은 옆으로 넘기기, 로고 박스 숨김 (11/10) */
+@media (max-width: 760px) {
+  .story-head .logo { display: none; }
+  .step > .shots:not(.deck), .sq-grid, .hz-stack { display: flex !important; overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--margin)); padding-right: var(--margin); scrollbar-width: none; }
+  .step > .shots:not(.deck) > img, .sq-grid > img { flex: 0 0 78%; width: 78%; scroll-snap-align: start; }
+  .hz-stack > img { flex: 0 0 88%; width: 88%; height: auto; scroll-snap-align: start; }
+  .hz-stack { margin-top: 10px; }
+}
+@media (max-width: 760px) {
+  .step > .shots.deck[style*="--n:3"] { display: flex !important; overflow-x: auto; gap: 10px; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--margin)); padding-right: var(--margin); scrollbar-width: none; }
+  .step > .shots.deck[style*="--n:3"] > img { flex: 0 0 82%; width: 82%; scroll-snap-align: start; }
+}
