@@ -467,3 +467,16 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 /* 11/10: 프로젝트 섭타이틀 통일 (1줄: 형태와 대상, 2줄: 연도, 맥락, 역할) */
 .meta .meta-what { display: block; color: var(--ink); }
 .meta .meta-ctx { display: block; margin-top: 2px; }
+
+/* 11/10: 모바일에서 폰이 작게 줄어드는 문제 (프로토타입을 바로 써 볼 수 있게) */
+@media (max-width: 760px) {
+  .device { width: 100%; }
+  .phone { width: min(320px, 86vw); }
+}
+/* 가로 넘기기 진행 막대 */
+.swipe-bar { display: none; }
+@media (max-width: 760px) {
+  .swipe-bar { display: block; position: relative; height: 3px; margin: 10px 0 0; background: #e7e8eb; border-radius: 2px; overflow: hidden; }
+  .swipe-bar[hidden] { display: none; }
+  .swipe-bar span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); border-radius: 2px; transition: transform 60ms linear; }
+}
