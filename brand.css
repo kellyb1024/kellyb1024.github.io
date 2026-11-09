@@ -1,0 +1,62 @@
+.story { padding: 140px var(--margin) 0; max-width: 1440px; margin: 0 auto; }
+.story-head { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6vw; align-items: end; }
+.story-head h1 { font-size: var(--step-display); line-height: 1; }
+.story-head .meta { color: var(--muted); margin-top: 16px; font-size: 17px; }
+.story-head .logo { background: #fff; display: grid; place-items: center; padding: 40px; }
+.story-head .logo img { max-height: 220px; width: auto; }
+.block { display: grid; grid-template-columns: 3fr 9fr; gap: 0 4vw; margin-top: 140px; }
+.block h2 { font-size: 30px; line-height: 1.2; }
+.block .body > p { font-size: 19px; max-width: 46ch; margin: 0 0 20px; }
+.step { margin: 0 0 96px; }
+.step h3 { font-size: 22px; margin: 0 0 12px; }
+.step p { max-width: 52ch; margin: 0 0 20px; font-size: 17px; }
+.step blockquote { margin: 0 0 20px; font-size: 21px; max-width: 40ch; }
+.shots { display: grid; gap: 10px; grid-template-columns: repeat(var(--n, 2), 1fr); }
+.shots img { width: 100%; height: auto; display: block; background: #fff; }
+.shots.wide { --n: 1; }
+.back { position: absolute; top: 28px; left: var(--margin); font-size: 15px; }
+.next { display: block; margin: 160px 0 0; padding: 48px var(--margin); background: var(--surface); font-size: 28px; text-decoration: none; }
+@media (max-width: 760px) {
+  .story-head, .block { grid-template-columns: 1fr; }
+  .block { margin-top: 96px; }
+  .block h2 { margin-bottom: 20px; }
+  .shots { --n: 1 !important; }
+}
+.story-head .logo img { background: transparent; max-height: 150px; max-width: 80%; height: auto; }
+.cap { font-size: 14px !important; color: var(--muted); }
+.shots img[src$=".png"] { background: transparent; }
+.band { display: flex; justify-content: center; align-items: flex-end; gap: 4px; padding: 40px 0 0; }
+.band img { height: 300px; width: auto; }
+.band img.c { height: 376px; }
+.site-pair { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+.site-pair .phone { width: 320px; }
+.site-pair > img { width: 100%; height: auto; }
+@media (max-width: 760px) {
+  .band img { height: 150px; } .band img.c { height: 188px; }
+  .site-pair { grid-template-columns: 1fr; justify-items: center; }
+  .site-pair .phone { width: min(320px, 100%); }
+}
+.band img { background: transparent; }
+.band { justify-content: flex-start; }
+.site-pair { grid-template-columns: auto; justify-content: start; }
+.band figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.band figure.c img { height: 376px; }
+.band figcaption { font-size: 14px; color: var(--muted, #9a9a9a); }
+@media (max-width: 760px) { .band figure.c img { height: 188px; } }
+.past-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 20px; }
+.past-grid figure { margin: 0; }
+.past-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; }
+.past-grid figcaption { font-size: 12px; color: var(--muted, #9a9a9a); margin-top: 6px; }
+@media (max-width: 760px) { .past-grid { grid-template-columns: repeat(4, 1fr); } }
+.past-strip { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-top: 14px; }
+.past-strip figure { margin: 0; }
+.past-strip img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; display: block; }
+.past-strip figcaption { font-size: 11px; color: var(--muted, #9a9a9a); margin-top: 4px; }
+@media (max-width: 760px) { .past-strip { grid-template-columns: repeat(6, 1fr); } }
+.lookbook-scroll { width: min(620px, 100%); height: 82vh; overflow-y: auto; margin-top: 16px; background: #000; scrollbar-width: thin; }
+.lookbook-scroll img { display: block; width: 100%; height: auto; margin: 0; }
+.lookbook-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; align-items: start; }
+.lookbook-cols img { display: block; width: 100%; height: auto; }
+@media (max-width: 760px) { .lookbook-cols { grid-template-columns: 1fr; gap: 0; } }
+.shots.gfx-grid { margin-top: 10px; }
+.shots img.span2 { grid-column: 1 / -1; }
