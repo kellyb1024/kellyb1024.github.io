@@ -486,3 +486,12 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
   .core-now { display: none; }
   .intro { padding-top: 40px; }
 }
+/* 11/10: 전체 작업을 세로 책등 대신 한 줄짜리 칩 목록으로 */
+.index { padding-top: clamp(4rem, 7vw, 7rem); }
+.index-head { margin-bottom: 20px; }
+.shelf { flex-wrap: wrap; height: auto; gap: 8px; }
+.shelf li { flex: 0 0 auto; }
+.shelf a { writing-mode: horizontal-tb; flex-direction: row; gap: 10px; padding: 10px 14px; align-items: center; }
+.shelf a:hover, .shelf a:focus-visible { transform: none; background: #e7e8eb; }
+.shelf .spine-name { font-size: 16px; }
+.shelf .tag { padding: 3px 8px; font-size: 13px; }
