@@ -82,3 +82,49 @@ document.querySelectorAll('.phone[data-src]').forEach((phone) => {
 document.querySelectorAll('video[poster]').forEach((v) => {
   v.addEventListener('ended', () => { v.load(); });
 });
+
+// Signature: the paper plane is drawn from its left tail as the contact section scrolls in.
+(() => {
+  const cv = document.querySelector('canvas.sig-fly');
+  if (!cv) return;
+  const img = new Image();
+  img.onload = () => {
+    const w = img.naturalWidth, h = img.naturalHeight;
+    cv.width = w; cv.height = h;
+    const ctx = cv.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(img, 0, 0);
+    const src = ctx.getImageData(0, 0, w, h).data;
+    ctx.clearRect(0, 0, w, h);
+    const idx = [];
+    for (let i = 0; i < w * h; i++) if (src[i * 4 + 3]) idx.push(i);
+    const dv = new Uint16Array(w * h);
+    for (const i of idx) dv[i] = (src[i * 4] << 8) | src[i * 4 + 1];
+    idx.sort((a, b) => dv[a] - dv[b]);
+    const out = ctx.createImageData(w, h), o = out.data;
+    const rgb = (getComputedStyle(cv).color.match(/\d+/g) || [0, 47, 167]).map(Number);
+    let drawn = 0;
+    const upto = (lim) => { let lo = 0, hi = idx.length; while (lo < hi) { const m = (lo + hi) >> 1; if (dv[idx[m]] <= lim) lo = m + 1; else hi = m; } return lo; };
+    const paint = (p) => {
+      const target = upto(Math.round(p * 65535));
+      if (target === drawn) return;
+      if (target > drawn) for (let k = drawn; k < target; k++) { const i = idx[k] * 4; o[i] = rgb[0]; o[i + 1] = rgb[1]; o[i + 2] = rgb[2]; o[i + 3] = src[i + 3]; }
+      else for (let k = target; k < drawn; k++) o[idx[k] * 4 + 3] = 0;
+      drawn = target;
+      ctx.putImageData(out, 0, 0);
+    };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { paint(1); return; }
+    let queued = false;
+    const update = () => {
+      queued = false;
+      const vh = innerHeight, top = cv.getBoundingClientRect().top + scrollY;
+      const maxY = document.documentElement.scrollHeight - vh;
+      const start = top - vh * 0.95, end = Math.max(start + 1, Math.min(top - vh * 0.4, maxY - 2));
+      const p = Math.min(1, Math.max(0, (scrollY - start) / (end - start)));
+      paint(p);
+    };
+    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(update); } }, { passive: true });
+    addEventListener('resize', update);
+    update();
+  };
+  img.src = cv.dataset.src;
+})();
