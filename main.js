@@ -54,14 +54,28 @@ document.querySelectorAll('.phone[data-src]').forEach((phone) => {
     const frame = document.createElement('iframe');
     frame.src = phone.dataset.src;
     frame.title = phone.dataset.title || '프로토타입';
-    frame.loading = 'lazy';
     frame.allow = 'camera; microphone; clipboard-write';
+    // Same-origin prototypes: keep their focus and scrollIntoView calls from scrolling this page.
+    frame.addEventListener('load', () => {
+      try {
+        const w = frame.contentWindow;
+        const P = w.HTMLElement.prototype, E = w.Element.prototype;
+        const focus0 = P.focus, siv0 = E.scrollIntoView;
+        P.focus = function (o) { return focus0.call(this, Object.assign({}, o, { preventScroll: true })); };
+        E.scrollIntoView = function (arg) {
+          const x = window.scrollX, y = window.scrollY;
+          const opt = typeof arg === 'object' && arg ? Object.assign({}, arg, { behavior: 'auto' }) : arg;
+          siv0.call(this, opt);
+          window.scrollTo(x, y);
+        };
+      } catch (e) { /* cross-origin: nothing to patch */ }
+    });
     phone.classList.add('live');
     phone.replaceChildren(frame);
     if (btn) btn.hidden = true;
     const link = actions && actions.querySelector('.device-link');
     if (link) link.hidden = false;
-    frame.focus();
+    frame.focus({ preventScroll: true });
   };
   if (btn) btn.addEventListener('click', start);
   const poster = phone.querySelector('img');

@@ -5,6 +5,6 @@ strip_imgs=['assets/strip/hw-home.jpg','assets/booth/0016.jpg','assets/shots/gw-
 strip=''.join(f'<img src="{s}" alt="" height="150" loading="lazy">' for s in strip_imgs*2)
 v=str(int(time.time()))
 out=t.replace('{{RING}}',ring).replace('{{STRIP}}',strip)
-for f in ['style.css','main.js','fitphone.js','base.css','base.js','light.css']:
+for f in ['style.css','main.js','fitphone.js','base.css','base.js','light.css','swipe.js']:
     out=out.replace('"'+f+'"','"'+f+'?v='+v+'"').replace("'"+f+"'","'"+f+'?v='+v+"'")
 open('index.html','w',encoding='utf-8').write(out)
