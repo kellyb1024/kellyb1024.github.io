@@ -60,3 +60,8 @@
 @media (max-width: 760px) { .lookbook-cols { grid-template-columns: 1fr; gap: 0; } }
 .shots.gfx-grid { margin-top: 10px; }
 .shots img.span2 { grid-column: 1 / -1; }
+
+/* BUROCK 슬라이드 (11/10) */
+.shots.deck { gap: 12px; margin-bottom: 8px; }
+.shots.deck img { background: #2b2b2b; aspect-ratio: 16 / 9; object-fit: cover; }
+.step .shots + .shots, .step .band + .shots { margin-top: 12px; }
