@@ -448,3 +448,8 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
   .case-wide .zine a { flex: 0 0 82%; scroll-snap-align: start; }
   .case-wide .zine figcaption { display: none; }
 }
+
+/* 11/10: 인트로 영상에 무엇인지 표시 */
+.film-label { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
+.intro-film figcaption strong { color: var(--ink); font-weight: 600; }
+.intro-film figcaption a { color: var(--accent); margin-left: 6px; text-underline-offset: 3px; }
