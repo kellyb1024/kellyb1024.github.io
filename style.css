@@ -418,4 +418,12 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 .me figcaption span { color: var(--muted); }
 
 /* 11/10: footer 삭제 후 연락 섹션이 페이지 끝 */
-.contact { min-height: 0; padding-bottom: 120px; }
+.contact { min-height: 0; padding-bottom: 0; }
+
+/* 시그니처 (명함 뒷면 종이비행기, 11/10) */
+.sig { display: block; background: var(--accent); -webkit-mask: url(assets/me/signature.svg) no-repeat center / contain; mask: url(assets/me/signature.svg) no-repeat center / contain; aspect-ratio: 2504 / 1426; }
+.sig-mark { display: inline-block; width: 34px; vertical-align: -3px; margin-right: 10px; }
+.sig-fly { display: block; color: var(--accent); width: min(1100px, 86vw); height: auto; aspect-ratio: 2000 / 1139; margin: 64px 0 0 calc(-1 * var(--margin)); }
+.contact h2#contact-title { text-align: right; margin-top: calc(-1 * min(150px, 11vw)); }
+@media (max-width: 700px) { .sig-fly { width: 100vw; margin-top: 40px; } .contact h2#contact-title { margin-top: 8px; } }
+.contact .strip { margin-top: 96px; }
