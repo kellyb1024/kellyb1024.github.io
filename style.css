@@ -420,13 +420,12 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 /* 11/10: footer 삭제 후 연락 섹션이 페이지 끝 */
 .contact { min-height: 0; padding-bottom: 0; }
 
-/* 시그니처 (명함 뒷면 종이비행기, 11/10) */
-.sig { display: block; background: var(--accent); -webkit-mask: url(assets/me/signature.svg) no-repeat center / contain; mask: url(assets/me/signature.svg) no-repeat center / contain; aspect-ratio: 2504 / 1426; }
-.sig-mark { display: inline-block; width: 34px; vertical-align: -3px; margin-right: 10px; }
-.sig-fly { display: block; color: var(--accent); width: min(1100px, 86vw); height: auto; aspect-ratio: 2000 / 1139; margin: 64px 0 0 calc(-1 * var(--margin)); }
-.contact h2#contact-title { text-align: right; margin-top: calc(-1 * min(150px, 11vw)); }
-@media (max-width: 700px) { .sig-fly { width: 100vw; margin-top: 40px; } .contact h2#contact-title { margin-top: 8px; } }
+/* 연락 섹션 문구 (11/10) */
+.contact-line { margin: 96px var(--margin) 0; font-size: clamp(1.75rem, 1rem + 2.6vw, 3.25rem); line-height: 1.25; letter-spacing: -0.02em; color: var(--accent); max-width: 22ch; word-break: keep-all; }
+.contact h2#contact-title { margin-top: 64px; font-size: 22px; color: var(--muted); }
+@media (max-width: 700px) { .contact-line { margin-top: 64px; } .contact h2#contact-title { margin-top: 40px; font-size: 18px; } }
 .contact .strip { margin-top: 96px; }
+
 /* 11/10: 렌즈 강조 제거 (목록 점, 작업 선반 색이 렌즈에 따라 바뀌지 않음) */
 body[data-lens] .exp-list li .dot { background: #c9ccd1 !important; }
 body[data-lens] .shelf li .spine-name { color: var(--ink) !important; }
