@@ -1,20 +1,21 @@
-/* 비교용 밝은 버전: ?theme=light 일 때만 적용 */
+/* 기본 테마: 밝은 미색 (11/10). ?theme=dark 일 때만 빠짐 */
 :root {
-  --bg: #ffffff;
-  --surface: #f2f3f5;
+  --bg: #fafaf7;
+  --surface: #f0efeb;
   --ink: #18191b;
   --muted: #5f6165;
   --accent: #002FA7;
   --accent-ink: #ffffff;
-  --field-1: #18191b;
-  --field-1-ink: #ffffff;
-  --field-1-muted: #b5b7bb;
+  --field-1: #f0efeb;
+  --field-1-ink: #18191b;
+  --field-1-muted: #5f6165;
 }
-.lens button:hover { background: #e6e7ea; }
-.tag { background: #e6e7ea; }
-.dot { background: #cfd1d5; }
+.lens button:hover { background: #e5e4df; }
+.tag { background: #e5e4df; }
+.dot { background: #cfcdc7; }
 .project dt { color: #002FA7; }
-body[data-lens] .shelf li .tag { background: #e6e7ea; color: var(--ink); }
-.cell { background: #e6e7ea; color: var(--ink); }
-.cell:hover, .cell:focus-visible { background: #dcdee2; }
+body[data-lens] .shelf li .tag { background: #e5e4df; color: var(--ink); }
+.cell { background: #e5e4df; color: var(--ink); }
+.cell:hover, .cell:focus-visible { background: #dddcd6; }
 .cell.send { background: var(--accent); color: var(--accent-ink); }
+.cell.send:hover { background: #00227a; }
