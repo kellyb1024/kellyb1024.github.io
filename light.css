@@ -4,8 +4,8 @@
   --surface: #e6e4df;
   --ink: #18191b;
   --muted: #5f6165;
-  --accent: #ff4a1f;
-  --accent-ink: #18191b;
+  --accent: #002FA7;
+  --accent-ink: #ffffff;
   --field-1: #18191b;
   --field-1-ink: #f2f1ee;
   --field-1-muted: #b5b7bb;
@@ -13,7 +13,7 @@
 .lens button:hover { background: #d9d6d0; }
 .tag { background: #d9d6d0; }
 .dot { background: #c9c6c0; }
-.project dt { color: #ff6a45; }
+.project dt { color: #002FA7; }
 body[data-lens] .shelf li .tag { background: #d9d6d0; color: var(--ink); }
 .cell { background: #d9d6d0; color: var(--ink); }
 .cell:hover, .cell:focus-visible { background: #cbc8c2; }
