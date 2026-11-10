@@ -97,7 +97,20 @@
         const wait = () => {
           let busy = false;
           try { busy = !!frame.contentDocument.getElementById('__bundler_thumbnail'); } catch (e) { busy = false; }
-          if (busy && tries++ < 60) setTimeout(wait, 100); else setTimeout(reveal, busy ? 0 : 150);
+          if (busy && tries++ < 60) { setTimeout(wait, 100); return; }
+          // Same-origin prototypes: tap through the sign-in steps so the app opens on its home screen, like the poster.
+          const steps = (phone.dataset.skip || '').split('|').filter(Boolean);
+          const tap = (i) => {
+            if (i >= steps.length) { setTimeout(reveal, 150); return; }
+            let done = false;
+            try {
+              const d = frame.contentDocument;
+              const el = [...d.querySelectorAll('button, a, [role=button]')].find((b) => b.textContent.trim() === steps[i]);
+              if (el) { el.click(); done = true; }
+            } catch (e) { /* cross-origin */ }
+            setTimeout(() => tap(done ? i + 1 : steps.length), 350);
+          };
+          tap(0);
         };
         wait();
       });
