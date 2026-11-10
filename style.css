@@ -579,3 +579,6 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
 @media (max-width: 760px) { .raon-pair, .raon-pair.two { grid-template-columns: 1fr; } }
 .raon-pair.three { grid-template-columns: 1fr 1fr 1fr; }
 @media (max-width: 760px) { .raon-pair.three { grid-template-columns: 1fr; } }
+.char-sheet img { width: 100%; height: auto; display: block; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.char-sheet figcaption { margin-top: 12px; font-size: 15px; color: var(--muted); }
+.char-sheet + .project-film { margin-top: 56px; }
