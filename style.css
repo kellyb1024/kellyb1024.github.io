@@ -510,3 +510,12 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 .device { width: 100%; }
 .phone > img { position: relative; z-index: 0; }
 .phone > iframe { z-index: 1; }
+/* 11/10: 개조식 줄 간격 */
+#gachiwork .pps-body p + p { margin-top: 6px; }
+/* 11/10: 전체 작업 칩, 누를 수 있게 보이도록 */
+.shelf a { background: #fff !important; border: 1px solid #d9dce1; transition: border-color var(--t-hover) var(--ease-out), color var(--t-hover) var(--ease-out); }
+.shelf a:hover, .shelf a:focus-visible { background: #fff !important; border-color: var(--accent); }
+.shelf a:hover .spine-name { color: var(--accent) !important; }
+.shelf a::after { content: "→"; color: var(--muted); font-size: 14px; }
+.shelf a:hover::after { color: var(--accent); }
+body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important; padding: 0; color: var(--muted) !important; font-size: 13px; }
