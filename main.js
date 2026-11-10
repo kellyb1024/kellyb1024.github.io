@@ -87,9 +87,19 @@
             window.scrollTo(x, y);
           };
         } catch (e) { /* cross-origin: guarded by guardScroll instead */ }
-        frame.style.transition = 'opacity 200ms ease';
-        frame.style.opacity = '1';
-        if (poster) poster.remove();
+        const reveal = () => {
+          frame.style.transition = 'opacity 200ms ease';
+          frame.style.opacity = '1';
+          if (poster) setTimeout(() => poster.remove(), 220);
+        };
+        // Bundled prototypes unpack after load; keep the poster up until the app has drawn.
+        let tries = 0;
+        const wait = () => {
+          let busy = false;
+          try { busy = !!frame.contentDocument.getElementById('__bundler_thumbnail'); } catch (e) { busy = false; }
+          if (busy && tries++ < 60) setTimeout(wait, 100); else setTimeout(reveal, busy ? 0 : 150);
+        };
+        wait();
       });
       phone.classList.add('live');
       phone.appendChild(frame);
