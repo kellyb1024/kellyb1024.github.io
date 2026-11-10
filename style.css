@@ -555,3 +555,16 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
   .case-page .case .case-text > .pps { grid-area: 3 / 1; margin-top: 22px; }
   .case-page .case > .device { grid-row: 3; grid-column: 2; align-self: start; margin-top: 22px; }
 }
+/* 11/10: UXIM, 라온 상세 */
+.curri { width: 100%; border-collapse: collapse; font-size: 15px; }
+.curri caption { text-align: left; font-size: 15px; color: var(--muted); padding: 0 0 10px; caption-side: top; }
+.curri th, .curri td { text-align: left; padding: 9px 10px 9px 0; border-bottom: 1px solid #e7e8eb; vertical-align: top; }
+.curri th { font-weight: 600; color: var(--muted); font-size: 13px; }
+.curri tr.mine td { font-weight: 600; }
+.curri.skills td:first-child { font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: 14px; white-space: nowrap; padding-right: 20px; }
+.deck-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+.deck-grid img { width: 100%; height: auto; display: block; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.raon-pages { grid-template-columns: repeat(3, 1fr); align-items: start; margin-top: 14px; }
+.bs-row.trio.raon-pages img, .raon-pages img { aspect-ratio: auto; max-height: none; height: auto; object-fit: contain; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.raon-pages figcaption { margin-top: 8px; font-size: 15px; color: var(--muted); }
+@media (max-width: 760px) { .deck-grid { grid-template-columns: 1fr 1fr; } .raon-pages { grid-template-columns: 1fr; } .curri { font-size: 14px; } }
