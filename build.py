@@ -22,7 +22,7 @@ for part in sorted(glob.glob('cases/*.html')):
     h=h.replace('content="https://kellyb1024.github.io/"',f'content="https://kellyb1024.github.io/{name}.html"',1)
     page=(h+'<body data-lens="design" class="case-page">\n'
       '  <header class="bar">\n    <a class="wordmark" href="index.html">배경진 <span>Kyungjin Bae</span></a>\n'
-      '    <nav aria-label="주요 메뉴">\n      <a href="index.html#index-title">프로젝트</a>\n      <a href="index.html#experience">경험</a>\n'
+      '    <nav aria-label="주요 메뉴">\n      <a href="index.html#index-title">프로젝트</a>\n      <a href="index.html#experience">이력</a>\n'
       '      <a class="bar-action" href="index.html#contact">연락하기</a>\n    </nav>\n  </header>\n'
       f'  <main id="top" class="case-main">\n    <a class="case-back" href="index.html#{name}">메인으로 돌아가기</a>\n'+body+
       '  </main>\n  <script src="base.js"></script>\n  <script src="main.js"></script>\n  <script src="fitphone.js"></script><script src="swipe.js"></script>\n</body>\n</html>\n')
