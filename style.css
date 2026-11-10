@@ -591,4 +591,4 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
 .hw-screens-wrap + .char-sheet { margin-top: 72px; }
 @media (max-width: 760px) { .hw-screens { grid-template-columns: 1fr 1fr; gap: 14px; } }
 .gw-poster { margin: 14px 0 72px; }
-.gw-poster img { width: 100%; max-width: 760px; height: auto; display: block; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.gw-poster img { width: 100%; max-width: 720px; height: auto; display: block; margin: 0 auto; outline: 1px solid #e7e8eb; outline-offset: -1px; }
