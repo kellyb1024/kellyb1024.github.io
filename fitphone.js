@@ -12,7 +12,9 @@
       f.style.position='absolute'; f.style.left=padL+'px'; f.style.top=padT+'px';
       f.style.width=bw+'px'; f.style.height=bh+'px';
       f.style.transformOrigin='0 0'; f.style.transform='scale('+k+')';
-      f.style.borderRadius=(desk?8:34)/k+'px';
+      var rad=(desk?8:34)/k; f.style.borderRadius=rad+'px';
+      // 11/10: transform이 걸린 iframe은 border-radius 클리핑이 풀릴 수 있어 clip-path로 한 번 더 자름
+      f.style.clipPath='inset(0 round '+rad+'px)'; f.style.webkitClipPath='inset(0 round '+rad+'px)';
     });
   }
   window.addEventListener('resize',fit);
