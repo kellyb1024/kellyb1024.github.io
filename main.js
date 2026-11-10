@@ -45,42 +45,70 @@
   document.querySelectorAll('[data-set-lens]').forEach((b) => b.addEventListener('click', hide));
 })();
 
-// Live prototypes: the poster becomes the real app inside the phone on request.
-document.querySelectorAll('.phone[data-src]').forEach((phone) => {
-  const actions = phone.parentElement.querySelector('.device-actions');
-  const btn = actions && actions.querySelector('.run');
-  const start = () => {
-    if (phone.classList.contains('live')) return;
-    const frame = document.createElement('iframe');
-    frame.src = phone.dataset.src;
-    frame.title = phone.dataset.title || '프로토타입';
-    frame.allow = 'camera; microphone; clipboard-write';
-    // Same-origin prototypes: keep their focus and scrollIntoView calls from scrolling this page.
-    frame.addEventListener('load', () => {
-      try {
-        const w = frame.contentWindow;
-        const P = w.HTMLElement.prototype, E = w.Element.prototype;
-        const focus0 = P.focus, siv0 = E.scrollIntoView;
-        P.focus = function (o) { return focus0.call(this, Object.assign({}, o, { preventScroll: true })); };
-        E.scrollIntoView = function (arg) {
-          const x = window.scrollX, y = window.scrollY;
-          const opt = typeof arg === 'object' && arg ? Object.assign({}, arg, { behavior: 'auto' }) : arg;
-          siv0.call(this, opt);
-          window.scrollTo(x, y);
-        };
-      } catch (e) { /* cross-origin: nothing to patch */ }
-    });
-    phone.classList.add('live');
-    phone.replaceChildren(frame);
-    if (btn) btn.hidden = true;
-    const link = actions && actions.querySelector('.device-link');
-    if (link) link.hidden = false;
-    frame.focus({ preventScroll: true });
+// Live prototypes: the poster becomes the real app inside the phone.
+// Desktop: turns on by itself when the phone scrolls into view. Phone screens: tap to start.
+(() => {
+  let lastInput = 0;
+  ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach((ev) => addEventListener(ev, () => { lastInput = Date.now(); }, { passive: true, capture: true }));
+  const guardScroll = () => {
+    // A prototype loading inside the page must not move the page on its own.
+    const y0 = window.scrollY, until = Date.now() + 2000;
+    const onScroll = () => {
+      if (Date.now() > until) { removeEventListener('scroll', onScroll); return; }
+      if (Date.now() - lastInput > 400 && Math.abs(window.scrollY - y0) > 40) window.scrollTo(window.scrollX, y0);
+    };
+    addEventListener('scroll', onScroll, { passive: true });
   };
-  if (btn) btn.addEventListener('click', start);
-  const poster = phone.querySelector('img');
-  if (poster) { poster.style.cursor = 'pointer'; poster.addEventListener('click', start); }
-});
+  const desktop = matchMedia('(min-width: 761px)');
+  document.querySelectorAll('.phone[data-src]').forEach((phone) => {
+    const actions = phone.parentElement.querySelector('.device-actions');
+    const btn = actions && actions.querySelector('.run');
+    const poster = phone.querySelector('img');
+    const start = (byUser) => {
+      if (phone.classList.contains('live')) return;
+      // Keep the phone's size fixed while the app loads, so the bezel never jumps.
+      const r = phone.getBoundingClientRect();
+      phone.style.width = r.width + 'px'; phone.style.height = r.height + 'px';
+      const frame = document.createElement('iframe');
+      frame.src = phone.dataset.src;
+      frame.title = phone.dataset.title || '프로토타입';
+      frame.allow = 'camera; microphone; clipboard-write';
+      frame.style.opacity = '0';
+      frame.addEventListener('load', () => {
+        try {
+          const w = frame.contentWindow;
+          const P = w.HTMLElement.prototype, E = w.Element.prototype;
+          const focus0 = P.focus, siv0 = E.scrollIntoView;
+          P.focus = function (o) { return focus0.call(this, Object.assign({}, o, { preventScroll: true })); };
+          E.scrollIntoView = function (arg) {
+            const x = window.scrollX, y = window.scrollY;
+            const opt = typeof arg === 'object' && arg ? Object.assign({}, arg, { behavior: 'auto' }) : arg;
+            siv0.call(this, opt);
+            window.scrollTo(x, y);
+          };
+        } catch (e) { /* cross-origin: guarded by guardScroll instead */ }
+        frame.style.transition = 'opacity 200ms ease';
+        frame.style.opacity = '1';
+        if (poster) poster.remove();
+      });
+      phone.classList.add('live');
+      phone.appendChild(frame);
+      guardScroll();
+      if (btn) btn.hidden = true;
+      const link = actions && actions.querySelector('.device-link');
+      if (link) link.hidden = false;
+      if (byUser) frame.focus({ preventScroll: true });
+    };
+    if (btn) btn.addEventListener('click', () => start(true));
+    if (poster) { poster.style.cursor = 'pointer'; poster.addEventListener('click', () => start(true)); }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting && desktop.matches) { start(false); io.disconnect(); } });
+      }, { threshold: 0.6 });
+      io.observe(phone);
+    }
+  });
+})();
 
 // Seoul clock in the footer.
 (() => {

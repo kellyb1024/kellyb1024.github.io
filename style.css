@@ -506,3 +506,7 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 .project dd p { margin: 0; }
 .pps-body p { margin: 0; }
 .pps-body p + p { margin-top: 10px; }
+/* 11/10: 앱이 켜질 때 폰 틀이 줄거나 밀리지 않게 */
+.device { width: 100%; }
+.phone > img { position: relative; z-index: 0; }
+.phone > iframe { z-index: 1; }
