@@ -100,17 +100,18 @@
           if (busy && tries++ < 60) { setTimeout(wait, 100); return; }
           // Same-origin prototypes: tap through the sign-in steps so the app opens on its home screen, like the poster.
           const steps = (phone.dataset.skip || '').split('|').filter(Boolean);
-          const tap = (i) => {
+          const tap = (i, tries) => {
             if (i >= steps.length) { setTimeout(reveal, 150); return; }
-            let done = false;
+            let el = null;
             try {
               const d = frame.contentDocument;
-              const el = [...d.querySelectorAll('button, a, [role=button]')].find((b) => b.textContent.trim() === steps[i]);
-              if (el) { el.click(); done = true; }
-            } catch (e) { /* cross-origin */ }
-            setTimeout(() => tap(done ? i + 1 : steps.length), 350);
+              el = [...d.querySelectorAll('button, a, [role=button]')].find((b) => b.textContent.trim() === steps[i]);
+            } catch (e) { reveal(); return; }
+            if (el) { el.click(); setTimeout(() => tap(i + 1, 0), 350); }
+            else if (tries < 30) setTimeout(() => tap(i, tries + 1), 150);
+            else reveal();
           };
-          tap(0);
+          tap(0, 0);
         };
         wait();
       });
