@@ -125,7 +125,7 @@
     };
     if (btn) btn.addEventListener('click', () => start(true));
     if (poster) { poster.style.cursor = 'pointer'; poster.addEventListener('click', () => start(true)); }
-    if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window && !('noauto' in phone.dataset)) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach((e) => { if (e.isIntersecting && desktop.matches) { start(false); io.disconnect(); } });
       }, { threshold: 0.6 });

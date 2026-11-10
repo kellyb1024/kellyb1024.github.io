@@ -519,3 +519,14 @@ body[data-lens] .shelf li .tag { background: #e7e8eb !important; color: var(--in
 .shelf a::after { content: "→"; color: var(--muted); font-size: 14px; }
 .shelf a:hover::after { color: var(--accent); }
 body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important; padding: 0; color: var(--muted) !important; font-size: 13px; }
+/* 11/10: 메인은 하이라이트, 상세는 케이스 페이지 */
+.case-more { justify-self: start; display: inline-block; margin-top: 4px; padding: 14px 22px; background: var(--accent); color: var(--accent-ink); font-weight: 600; font-size: 16px; text-decoration: none; transition: transform var(--t-press) var(--ease-out); }
+.case-more::after { content: " →"; }
+.case-more:hover { transform: translateY(-2px); }
+.case-main { padding-top: 64px; }
+.case-back { display: inline-block; margin: 24px var(--margin) 0; font-size: 15px; color: var(--muted); }
+.case-page .case:first-of-type { padding-top: 40px; }
+.case-next { display: block; margin: 120px 0 0; padding: 48px var(--margin); background: var(--surface); font-size: 28px; text-decoration: none; color: var(--ink); }
+.case-next::after { content: " →"; }
+.case .device.wide { justify-self: stretch; }
+@media (max-width: 760px) { .case-more { width: 100%; text-align: center; } .case-next { font-size: 22px; margin-top: 80px; } }
