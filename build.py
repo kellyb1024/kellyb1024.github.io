@@ -23,7 +23,7 @@ for part in sorted(glob.glob('cases/*.html')):
     page=(h+'<body data-lens="design" class="case-page">\n'
       '  <header class="bar">\n    <a class="wordmark" href="index.html">배경진 <span>Kyungjin Bae</span></a>\n'
       '    <nav aria-label="주요 메뉴">\n      <a href="index.html#index-title">프로젝트</a>\n      <a href="index.html#experience">이력</a>\n'
-      '      <a class="bar-action" href="index.html#contact">연락하기</a>\n    </nav>\n  </header>\n'
+      '      <a class="bar-action" href="mailto:jinnykj0218@gmail.com?subject=%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EB%A5%BC%20%EB%B3%B4%EA%B3%A0%20%EC%97%B0%EB%9D%BD%EB%93%9C%EB%A0%A4%EC%9A%94">연락하기</a>\n    </nav>\n  </header>\n'
       f'  <main id="top" class="case-main">\n    <a class="case-back" href="index.html#{name}">메인으로 돌아가기</a>\n'+body+
       '  </main>\n  <script src="base.js"></script>\n  <script src="main.js"></script>\n  <script src="fitphone.js"></script><script src="swipe.js"></script>\n</body>\n</html>\n')
     for f in ['style.css','main.js','fitphone.js','base.css','base.js','light.css','swipe.js']:
