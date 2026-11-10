@@ -544,3 +544,6 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
 .deck-stack { grid-column: 1 / -1; display: grid; gap: 14px; margin-top: 14px; }
 .deck-stack img { width: 100%; height: auto; display: block; outline: 1px solid #e7e8eb; outline-offset: -1px; }
 .gw-slides .slides-cap { margin: 0; }
+/* 11/10: 인트로 GitHub 링크, 프라이머리 컬러로 눌러 보고 싶게 */
+.intro-col a.gh-link { color: var(--accent); font-weight: 600; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 4px; transition: text-decoration-color var(--t-hover) var(--ease-out); }
+.intro-col a.gh-link:hover { text-decoration-color: var(--accent); }
