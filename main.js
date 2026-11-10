@@ -74,7 +74,21 @@
       frame.title = phone.dataset.title || '프로토타입';
       frame.allow = 'camera; microphone; clipboard-write';
       frame.style.opacity = '0';
+      // 11/10: 폰 안에서 일어난 입력도 사용자 입력으로 세어서, 스크롤 가드가 사용자 스크롤을 되튜기지 않게.
+      // 앱 안 스크롤이 끝에 닿아도 바깥 페이지로 번지지 않게(overscroll 차단).
+      const arm = () => {
+        try {
+          const d = frame.contentDocument;
+          if (!d || d.__armed) return;
+          d.__armed = true;
+          ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach((ev) => d.addEventListener(ev, () => { lastInput = Date.now(); }, { passive: true, capture: true }));
+          const st = d.createElement('style');
+          st.textContent = 'html,body{overscroll-behavior:none}*{overscroll-behavior:contain}';
+          (d.head || d.documentElement).appendChild(st);
+        } catch (e) { /* cross-origin */ }
+      };
       frame.addEventListener('load', () => {
+        arm();
         try {
           const w = frame.contentWindow;
           const P = w.HTMLElement.prototype, E = w.Element.prototype;
@@ -87,6 +101,8 @@
             window.scrollTo(x, y);
           };
         } catch (e) { /* cross-origin: guarded by guardScroll instead */ }
+        if (frame.__ran) return; // 앱 안 링크로 다시 로드되어도 로그인 스킵을 또 누르지 않게
+        frame.__ran = true;
         const reveal = () => {
           frame.style.transition = 'opacity 200ms ease';
           frame.style.opacity = '1';
@@ -98,6 +114,7 @@
           let busy = false;
           try { busy = !!frame.contentDocument.getElementById('__bundler_thumbnail'); } catch (e) { busy = false; }
           if (busy && tries++ < 60) { setTimeout(wait, 100); return; }
+          arm(); // 번들 해제 과정에서 문서가 바뀜 수 있어 한 번 더
           // Same-origin prototypes: tap through the sign-in steps so the app opens on its home screen, like the poster.
           const steps = (phone.dataset.skip || '').split('|').filter(Boolean);
           const tap = (i, tries) => {

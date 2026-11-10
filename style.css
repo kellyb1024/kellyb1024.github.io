@@ -530,3 +530,13 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
 .case-next::after { content: " →"; }
 .case .device.wide { justify-self: stretch; }
 @media (max-width: 760px) { .case-more { width: 100%; text-align: center; } .case-next { font-size: 22px; margin-top: 80px; } }
+/* 11/10: 써니C 웹 뷰는 제목이 아니라 Define 줄에 맞춰 내려 시작 */
+@media (min-width: 761px) {
+  #sunic .case-text { display: contents; }
+  #sunic .case-text > h2 { grid-area: 1 / 1; }
+  #sunic .case-text > .meta { grid-area: 2 / 1; margin-top: 22px; }
+  #sunic .case-text > .pps { grid-area: 3 / 1; margin-top: 22px; }
+  #sunic .case-text > .case-more { grid-area: 4 / 1; margin-top: 22px; }
+  #sunic .device.wide { grid-row: 3; grid-column: 2; align-self: start; margin-top: 22px; }
+  #sunic .case-film { grid-row: 5; }
+}
