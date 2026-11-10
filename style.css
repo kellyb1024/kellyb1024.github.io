@@ -547,3 +547,11 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
 /* 11/10: 인트로 GitHub 링크, 프라이머리 컬러로 눌러 보고 싶게 */
 .intro-col a.gh-link { color: var(--accent); font-weight: 600; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 4px; transition: text-decoration-color var(--t-hover) var(--ease-out); }
 .intro-col a.gh-link:hover { text-decoration-color: var(--accent); }
+/* 11/10: 상세 페이지의 미리보기는 제목 옆이 아니라 Define 줄에 맞춰 시작 */
+@media (min-width: 761px) {
+  .case-page .case .case-text { display: contents; }
+  .case-page .case .case-text > h2 { grid-area: 1 / 1; }
+  .case-page .case .case-text > .meta { grid-area: 2 / 1; margin-top: 22px; }
+  .case-page .case .case-text > .pps { grid-area: 3 / 1; margin-top: 22px; }
+  .case-page .case > .device { grid-row: 3; grid-column: 2; align-self: start; margin-top: 22px; }
+}
