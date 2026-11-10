@@ -540,3 +540,7 @@ body[data-lens] .shelf li .tag, .shelf .tag { background: transparent !important
   #sunic .device.wide { grid-row: 3; grid-column: 2; align-self: start; margin-top: 22px; }
   #sunic .case-film { grid-row: 5; }
 }
+/* 11/10: GachiWork 상세, Gala Night 피칭 덱을 큰 슬라이드로 */
+.deck-stack { grid-column: 1 / -1; display: grid; gap: 14px; margin-top: 14px; }
+.deck-stack img { width: 100%; height: auto; display: block; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.gw-slides .slides-cap { margin: 0; }
