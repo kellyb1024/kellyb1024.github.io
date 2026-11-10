@@ -83,7 +83,7 @@
           d.__armed = true;
           ['wheel', 'touchmove', 'keydown', 'pointerdown'].forEach((ev) => d.addEventListener(ev, () => { lastInput = Date.now(); }, { passive: true, capture: true }));
           const st = d.createElement('style');
-          st.textContent = 'html,body{overscroll-behavior:none}*{overscroll-behavior:contain;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}';
+          st.textContent = 'html,body{overscroll-behavior:none}*{overscroll-behavior:contain;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.tabbar{background:#fff!important}';
           (d.head || d.documentElement).appendChild(st);
         } catch (e) { /* cross-origin */ }
       };
