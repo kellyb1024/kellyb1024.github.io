@@ -70,13 +70,13 @@ body[data-lens="brand"] .frame:not([data-lens~="brand"]) { opacity: 0.32; filter
 [data-lens-only] { display: block; }
 
 /* intro */
-.intro { display: grid; grid-template-columns: 13% 340px 1fr; gap: 0 4vw; padding: var(--section) var(--margin) 0; align-items: start; }
-.intro-col { grid-column: 2; display: grid; gap: 1.2em; font-size: 16px; }
+.intro { display: grid; grid-template-columns: minmax(340px, 30%) 1fr; gap: 0 4vw; padding: var(--section) var(--margin) 0; align-items: start; } /* 11/10: 왼쪽 13% 공백 열 제거 */
+.intro-col { grid-column: 1; display: grid; gap: 1.2em; font-size: 16px; }
 .intro-col h2 { margin-bottom: 0.4em; }
 .intro-col p { color: var(--muted); }
 .intro-col p.strong { color: var(--ink); font-weight: 600; }
 .intro-col a { color: var(--ink); }
-.intro-film { grid-column: 3; margin: 0; }
+.intro-film { grid-column: 2; margin: 0; }
 .intro-film video { width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--surface); display: block; }
 .intro-film figcaption { margin-top: 12px; font-size: 15px; color: var(--muted); }
 
