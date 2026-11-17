@@ -356,7 +356,7 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
   .core { width: min(940px, calc(100% - 2 * var(--margin))); }
   .core h1 { font-size: min(var(--step-display), 4.1rem); }
   .hero { min-height: max(100svh, 1000px); }
-  .ring { --ry: max(400px, 44svh); }
+  .ring { --ry: min(max(400px, 44svh), calc(50% - 110px)); }
 }
 
 .core-now { text-align: center; margin-left: auto; margin-right: auto; }
