@@ -217,6 +217,7 @@ body[data-lens="brand"] .exp-list li[data-lens~="brand"] .dot { background: var(
 }
 @media (max-width: 700px) {
   .bar nav a:not(.bar-action) { display: none; }
+  .bar nav a.lang { display: inline; }
   .ring { --rx: 66vw; --ry: 66vw; }
   .frame { --s: 72px; }
   .frame:nth-child(odd) { display: none; }
