@@ -2,7 +2,7 @@
 .story-head { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6vw; align-items: end; }
 .story-head h1 { font-size: var(--step-display); line-height: 1; }
 .story-head .meta { color: var(--muted); margin-top: 16px; font-size: 17px; }
-.story-head .logo { background: #fff; display: grid; place-items: center; padding: 40px; }
+.story-head .logo { background: transparent; display: grid; place-items: center; padding: 0; }
 .story-head .logo img { max-height: 220px; width: auto; }
 .block { display: grid; grid-template-columns: 3fr 9fr; gap: 0 4vw; margin-top: 140px; }
 .block h2 { font-size: 30px; line-height: 1.2; }

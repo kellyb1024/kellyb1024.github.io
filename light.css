@@ -20,4 +20,4 @@ body[data-lens] .shelf li .tag { background: #e7e8eb; color: var(--ink); }
 .cell.send { background: var(--accent); color: var(--accent-ink); }
 .cell.send:hover { background: #00227a; }
 .brand-logos img { background: #fff; outline: 1px solid #e7e8eb; outline-offset: -1px; }
-.story-head .logo { background: #fff; outline: 1px solid #e7e8eb; outline-offset: -1px; }
+.story-head .logo { background: transparent; outline: 0; }
