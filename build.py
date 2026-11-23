@@ -55,6 +55,6 @@ for lang,L in LANG.items():
         open(L['out']+name+'.html','w',encoding='utf-8').write(fix(ver(page)))
 
 # 브랜드 스토리 (영문): i18n/en/*.html → en/*.html
-for name in ['burock','tempus','cozy']:
+for name in ['burock','tempus','cozy','whynot']:
     s=open(f'i18n/en/{name}.html',encoding='utf-8').read().replace('{{KO}}',f'../{name}.html')
     open(f'en/{name}.html','w',encoding='utf-8').write(up(ver(s)))

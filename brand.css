@@ -6,11 +6,11 @@
 .story-head .logo img { max-height: 220px; width: auto; }
 .block { display: grid; grid-template-columns: 3fr 9fr; gap: 0 4vw; margin-top: 140px; }
 .block h2 { font-size: 30px; line-height: 1.2; }
-.block .body > p { font-size: 19px; max-width: 46ch; margin: 0 0 20px; }
+.block .body > p { font-size: 19px; max-width: 780px; margin: 0 0 20px; }
 .step { margin: 0 0 96px; }
 .step h3 { font-size: 22px; margin: 0 0 12px; }
-.step p { max-width: 52ch; margin: 0 0 20px; font-size: 17px; }
-.step blockquote { margin: 0 0 20px; font-size: 21px; max-width: 40ch; }
+.step p { max-width: 780px; margin: 0 0 20px; font-size: 17px; }
+.step blockquote { margin: 0 0 20px; font-size: 21px; max-width: 680px; }
 .shots { display: grid; gap: 10px; grid-template-columns: repeat(var(--n, 2), 1fr); }
 .shots img { width: 100%; height: auto; display: block; background: #fff; }
 .shots.wide { --n: 1; }
