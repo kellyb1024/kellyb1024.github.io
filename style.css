@@ -122,6 +122,8 @@ body[data-lens="brand"] .shelf li[data-lens~="brand"] .tag { background: var(--a
 .run:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .device-link { font-size: 15px; color: var(--muted); }
 .device-link:hover { color: var(--ink); }
+.device-link.gh, .others .device-link.gh { color: var(--accent); }
+.device-link.gh:hover, .others .device-link.gh:hover { color: var(--ink); }
 
 /* booth run */
 .run-strip { display: grid; grid-template-columns: 3fr 9fr; gap: 24px; padding: var(--section) var(--margin) 0; }
